@@ -25,8 +25,30 @@ const CartProvider = ({ children }) => {
       setCart((cart) => [...cart, newItem])
     }
   };
+
+  // remove from cart
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => {
+      return item.id !== id;
+    });
+    setCart(newCart);
+  };
+
+  // clear cart
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  // increase amount
+  const increaseAmount = (id) => {
+    console.log('amount increased');
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+     value={{ cart, addToCart, removeFromCart, clearCart,
+    increaseAmount }}
+    >
       {children}
     </CartContext.Provider>
   );
