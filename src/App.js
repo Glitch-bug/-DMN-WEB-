@@ -1,26 +1,31 @@
-import React from 'react';
+import React from "react";
 // import react router dom
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import pages
 // import components
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import ProductDetails from './pages/ProductDetails';
+import ProductDetails from "./pages/product-details";
+import Store from "./pages/store";
+import { URLS } from "./constants/routes";
+import WebWrap from "./tools/components/web-wrap/web-wrap";
+import Home from "./pages/home";
 
 const App = () => {
-  return <div className='overflow-hidden'>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/product/:id' element={<ProductDetails />} />
-      </Routes>
-      <Sidebar />
-      <Footer />
-    </Router>
-  </div>;
+  return (
+    <div className="overflow-hidden">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path={URLS.store.route} element={<WebWrap />}>
+            <Route path={URLS.store.route} element={<Store />} />
+            {/* <Route
+              path={URLS.productDetails.route}
+              element={<ProductDetails />}
+            /> */}
+          </Route>
+        </Routes>
+      </Router>
+    </div>
+  );
 };
 
 export default App;
