@@ -2,8 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
+ {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #edf1f2;
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     @apply font-primary text-primary;
   }
+}
+
+/* Scrollbar modification */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(219, 69, 219, 0.8);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(29, 17, 138, 0.6);
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  .slider {
+    min-height: 50vh;
+
+    .swiper-slide {
+      background: #ccc;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .slide-inner {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        transform-origin: top;
+
+        img {
+          position: absolute;
+          width: 100%;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .swiper-pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 7em;
+    position: absolute;
+    z-index: 3;
+    right: 0;
+
+    span {
+      margin-bottom: 3em;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.07em;
+      color: #cc5500;
+
+      &:focus {
+        outline: ;
+      }
+    }
+  }
+}
+
+.PhoneInputInput {
+  outline: none;
+}
+
+#content {
+  text-align: center;
+  color: white;
+  padding: 200px 0;
+  background: #002020;
 }
